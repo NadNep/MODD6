@@ -1,3 +1,4 @@
+import json
 from django.db import models
 from django.utils.safestring import mark_safe
 from django.contrib.auth.models import User
@@ -53,3 +54,20 @@ def image_img(self):
 class UserProfile(models.Model):
     age = models.IntegerField()
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+    def save(self, *args, **kwargs):
+            ## загрузить текущую строку и
+            ## преобразовать строку в словарь Python
+        extra_data = json.loads(self.data)
+
+            ## сделать что-нибудь со словарем
+        for something in somethings:
+            extra_data [something] = some_function(something)
+
+            ## если он пуст, сохраните его обратно в строку '{}',
+            ## если он не пустой, преобразовать словарь обратно в строку json
+        if not extra_data:
+            self.data = '{}'
+        else:
+            self.data = json.dumps(extra_data)
+
+        super(UserProfile, self).save(*args, **kwargs)
