@@ -1,11 +1,7 @@
-<!DOCTYPE html>  
-<html lang="en">  
-	{% load static %}
-<head>  
- <meta charset="UTF-8">  
- <title>Создать несколько авторов</title>  
-</head>  
-<body>  
+{% extends "account/base.html" %}
+
+{% block content %}
+</br>
 <form method="post">  
 	{% csrf_token %}  
 	{% for form in author_formset %}  
@@ -14,5 +10,4 @@
 	{% endfor %}
     <input type="submit" value="Сохранить"/>  
 </form>  
-</body>  
-</html>
+{% endblock %} 

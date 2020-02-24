@@ -27,9 +27,15 @@
         <h1>Моя домашняя библиотека</h1>
       </div>
       <div class="text-right adminka">
+        {% if username %}  
+    <h3>Привет, {{ username }}!</h3>  
+	<p>Я знаю твой профиль на <a href="{{ github_url }}">github</a></p>  
+{% else %}  
+    <p>Тебе нужно <a href="/index/register/">зарегистрироваться</a> или  <a href="/index/login">войти на сайт </a>!</p>  
+{% endif %}  
+
       </div>
     </div>
-
     <div class="row main-wrapper">
       <div class="sidebar1 col-sm-2">
         {% block sidebar %}

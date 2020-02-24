@@ -1,14 +1,7 @@
-{% extends "base.html" %}
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	{% block title %}<title>Домашняя библиотека\Список авторов</title>{% endblock %}
-</head>
-<body>
-<div class="table">
+{% extends "account/base.html" %}
+
 {% block content %}
+</br>
 <table class="table table-bordered">
 	<ul>
 		{% for author in object_list %}
@@ -16,7 +9,4 @@
 		{% endfor %}
 	</ul>
 </table>
-{% endblock %}
-<div>
-</body>
-</html>
+{% endblock %}  
